@@ -7,7 +7,7 @@ A statically generated site hosted on Cloudflare Pages
 ### Log in to Cloudflare
 
 ```bash
-npx wrangler login --browser false
+npx wrangler login --no-browser
 ```
 
 ```bash
