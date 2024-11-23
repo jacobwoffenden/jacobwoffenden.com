@@ -1,8 +1,12 @@
 # jacobwoffenden.com
 
+![Production Deployment](https://github.com/jacobwoffenden/jacobwoffenden.com/actions/workflows/deploy-production.yml/badge.svg)
+
 A static site hosted on Cloudflare Pages
 
 ## Development
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jacobwoffenden/jacobwoffenden.com)
 
 ### Preview Site
 
