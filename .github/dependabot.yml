@@ -1,0 +1,34 @@
+---
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":dependabot: github-actions"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":dependabot: devcontainers"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "devcontainers"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":dependabot: npm"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "npm"

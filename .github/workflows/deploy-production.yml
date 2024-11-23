@@ -1,0 +1,32 @@
+---
+name: 🚀 Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  deploy-production:
+    name: 🚀 Deploy Production
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Deploy
+        id: deploy
+        uses: cloudflare/wrangler-action@05f17c4a695b4d94b57b59997562c6a4624c64e4 # v3.12.1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch preview

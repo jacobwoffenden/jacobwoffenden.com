@@ -1,0 +1,13 @@
+{
+  "name": "jacobwoffenden.com",
+  "author": "Jacob Woffenden <jacob@woffenden.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobwoffenden/jacobwoffenden.com.git"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3",
+    "wrangler": "3.90.0"
+  }
+}
