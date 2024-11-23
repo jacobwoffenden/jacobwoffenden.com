@@ -2,7 +2,13 @@
 
 A statically generated site hosted on Cloudflare Pages
 
-## Local Preview
+## Development
+
+### Log in to Cloudflare
+
+```bash
+npx wrangler login --browser false
+```
 
 ```bash
 npx wrangler pages dev --live-reload
