@@ -1,8 +1,16 @@
 # jacobwoffenden.com
 
-A statically generated site hosted on Cloudflare Pages
+A static site hosted on Cloudflare Pages
 
 ## Development
+
+### Preview Site
+
+```bash
+npx wrangler pages dev --live-reload
+```
+
+## Deployment
 
 ### Log in to Cloudflare
 
@@ -10,18 +18,8 @@ A statically generated site hosted on Cloudflare Pages
 npx wrangler login --no-browser
 ```
 
-```bash
-npx wrangler pages dev --live-reload
-```
-
-## Deploy to Preview Environment
+### Deploy
 
 ```bash
-npx wrangler pages deploy --branch preview
-```
-
-## Deploy to Production Environment
-
-```bash
-npx wrangler pages deploy --branch production
+npx wrangler pages deploy
 ```
