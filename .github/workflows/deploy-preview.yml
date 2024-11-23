@@ -17,13 +17,14 @@ jobs:
       deployments: write
     environment:
       name: preview
-      url: https://preview.jacobwoffenden-com.pages.dev
+      url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
       - name: Checkout
         id: checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Deploy
+        id: deploy
         uses: cloudflare/wrangler-action@05f17c4a695b4d94b57b59997562c6a4624c64e4 # v3.12.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
