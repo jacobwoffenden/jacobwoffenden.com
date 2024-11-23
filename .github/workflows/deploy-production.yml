@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 jobs:
-  deploy-preview:
+  deploy-production:
     name: 🚀 Deploy Production
     runs-on: ubuntu-latest
     permissions:
