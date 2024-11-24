@@ -2,3 +2,9 @@ body {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+.touch-target {
+  padding: 10px;
+  margin: 5px 0;
+  display: inline-block;
+}
