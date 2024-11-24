@@ -30,7 +30,7 @@ runs:
         curl --fail-with-body --location --silent "https://github.com/getzola/zola/releases/download/${version}/zola-${version}-x86_64-unknown-linux-gnu.tar.gz" \
           --output "${GITHUB_WORKSPACE}/.zola/zola.tar.gz"
 
-        tar --extract --gunzip --file "${GITHUB_WORKSPACE}/.zola/zola.tar.gz" --directory "${GITHUB_WORKSPACE}/.zola"
+        tar --extract --file "${GITHUB_WORKSPACE}/.zola/zola.tar.gz" --directory "${GITHUB_WORKSPACE}/.zola"
 
         echo "${GITHUB_WORKSPACE}/.zola" >>"${GITHUB_PATH}"
 
