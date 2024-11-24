@@ -1,0 +1,33 @@
+---
+name: Install Zola
+description: This action installs the Zola binary.
+
+inputs:
+  version:
+    description: The version of Zola to install, e.g. "v0.19.2".
+    required: false
+    default: "latest"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        if [[ "$(uname --machine)" != "x86_64" ]]; then
+          echo "Unsupported architecture: $(uname --machine)"
+          echo "Only x86_64 is supported"
+          exit 1
+        fi
+
+        if [[ "${{ inputs.version }}" == "latest" ]]; then
+          export version="$(curl --silent https://api.github.com/repos/getzola/zola/releases/latest | jq -r '.tag_name')"
+        else
+          export version="${{ inputs.version }}"
+        fi
+
+        curl --fail-with-body --location --silent "https://github.com/getzola/zola/releases/download/${version}/zola-${version}-x86_64-unknown-linux-gnu.tar.gz" \
+          --output "/tmp/zola.tar.gz"
+
+        tar --extract --file "/tmp/zola.tar.gz" --directory "/usr/local/bin"
+
+        zola --version

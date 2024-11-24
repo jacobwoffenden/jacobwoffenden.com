@@ -4,6 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
   },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
       "extensions": [

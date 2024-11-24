@@ -23,10 +23,19 @@ jobs:
         id: checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
+      - name: Install Zola
+        id: install_zola
+        uses: ./.github/actions/install-zola
+
+      - name: Build
+        id: build
+        working-directory: site
+        run: zola build
+
       - name: Deploy
         id: deploy
         uses: cloudflare/wrangler-action@05f17c4a695b4d94b57b59997562c6a4624c64e4 # v3.12.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy --branch ${{ github.head_ref }} --commit-hash ${{ github.sha }}
+          command: pages deploy --branch ${{ github.head_ref }} --commit-dirty=true --commit-hash ${{ github.sha }}

@@ -1,0 +1,15 @@
+base_url         = "https://jacobwoffenden.com"
+default_language = "en"
+
+build_search_index = false
+compile_sass       = true
+
+title       = "Jacob Woffenden"
+description = "Jacob Woffenden's personal website"
+author      = "Jacob Woffenden"
+
+
+[markdown]
+highlight_code = true
+
+[extra]
