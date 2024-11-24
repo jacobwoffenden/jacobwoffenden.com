@@ -6,11 +6,9 @@ A static site hosted on Cloudflare Pages
 
 ## Development
 
-<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jacobwoffenden/jacobwoffenden.com">
-  <img src="site/content/devcontainers/open-in-badge.svg" alt="Open in Dev Container" width="249">
-</a>
+[![Open in Dev Container](site/content/devcontainers/badge.svg)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jacobwoffenden/jacobwoffenden.com)
 
-[![open-in-codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jacobwoffenden/jacobwoffenden.com)
+[![Open in Codespace](https://github.com/codespaces/badge.svg)](https://codespaces.new/jacobwoffenden/jacobwoffenden.com)
 
 ### Preview Site
 
