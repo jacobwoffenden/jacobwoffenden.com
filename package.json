@@ -8,7 +8,10 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "preview": "wrangler pages dev --live-reload"
+    "serve": "cd site && zola serve",
+    "build": "cd site && zola build",
+    "wrangler-login": "wrangler login --no-browser",
+    "wrangler-deploy": "wrangler pages deploy --branch $(git branch --show-current | sed 's|/|-|g') --commit-dirty=true"
   },
   "devDependencies": {
     "prettier": "3.3.3",
