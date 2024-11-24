@@ -6,7 +6,7 @@ A static site hosted on Cloudflare Pages
 
 ## Development
 
-<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=jacobwoffenden/jacobwoffenden.com">
+<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jacobwoffenden/jacobwoffenden.com">
   <img src="site/content/devcontainers/open-in-badge.svg" alt="Open in Dev Container" width="249">
 </a>
 
