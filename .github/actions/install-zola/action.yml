@@ -36,4 +36,6 @@ runs:
 
         echo "Installed Zola ${version}"
 
+        ls -lrt "${GITHUB_WORKSPACE}/.zola"
+
         zola --version
