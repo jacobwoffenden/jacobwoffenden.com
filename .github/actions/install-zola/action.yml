@@ -25,25 +25,9 @@ runs:
           export version="${{ inputs.version }}"
         fi
 
-        mkdir --parents "${GITHUB_WORKSPACE}/.zola"
-
         curl --fail-with-body --location --silent "https://github.com/getzola/zola/releases/download/${version}/zola-${version}-x86_64-unknown-linux-gnu.tar.gz" \
-          --output "${GITHUB_WORKSPACE}/.zola/zola.tar.gz"
+          --output "/tmp/zola.tar.gz"
 
-        tar --extract --file "${GITHUB_WORKSPACE}/.zola/zola.tar.gz" --directory "${GITHUB_WORKSPACE}/.zola"
-
-        echo "${GITHUB_WORKSPACE}/.zola" >>"${GITHUB_PATH}"
-
-        echo "Installed Zola ${version}"
-
-        ls -lrt "${GITHUB_WORKSPACE}/.zola"
-
-        ${GITHUB_WORKSPACE}/.zola/zola --version
-
-        echo "${GITHUB_PATH}"
-
-        cat "${GITHUB_PATH}"
-
-        chmod +x "${GITHUB_WORKSPACE}/.zola/zola"
+        tar --extract --file "/tmp/zola.tar.gz" --directory "/usr/local/bin"
 
         zola --version
