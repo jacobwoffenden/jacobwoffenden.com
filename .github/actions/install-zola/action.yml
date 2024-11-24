@@ -38,4 +38,8 @@ runs:
 
         ls -lrt "${GITHUB_WORKSPACE}/.zola"
 
+        ${GITHUB_WORKSPACE}/.zola/zola --version
+
+        echo "${GITHUB_PATH}"
+
         zola --version
