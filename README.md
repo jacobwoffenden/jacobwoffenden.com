@@ -6,7 +6,11 @@ A static site hosted on Cloudflare Pages
 
 ## Development
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jacobwoffenden/jacobwoffenden.com)
+<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jacobwoffenden/jacobwoffenden.com">
+  <img src="site/content/devcontainers/open-in-badge.svg" alt="Open in Dev Container" width="249">
+</a>
+
+[![open-in-codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jacobwoffenden/jacobwoffenden.com)
 
 ### Preview Site
 
