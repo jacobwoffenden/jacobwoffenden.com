@@ -15,14 +15,11 @@
         <small>This site is built and published to Cloudflare Pages by GitHub Actions.</small>
         <br />
         <small
-          ><a href="https://github.com/{{ get_env(name='GITHUB_REPOSITORY', default='local') }}/{{ get_env(name='GITHUB_SHA', default='notarealsha') }}"
-            >Commit</a
-          ></small
+          ><a href="https://github.com/{{ get_env(name='GITHUB_REPOSITORY', default='local') }}/commit/{{ get_env(name='GITHUB_SHA', default='notarealsha') }}">Commit</a></small
         >
         <br />
         <small
-          ><a
-            href="https://github.com/{{ get_env(name='GITHUB_REPOSITORY', default='local') }}/actions/runs/{{ get_env(name='GITHUB_RUN_ID', default='notarealrun') }}"
+          ><a href="https://github.com/{{ get_env(name='GITHUB_REPOSITORY', default='local') }}/actions/runs/{{ get_env(name='GITHUB_RUN_ID', default='notarealrun') }}"
             >GitHub Actions Run</a
           ></small
         >
