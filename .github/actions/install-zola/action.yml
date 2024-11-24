@@ -42,4 +42,6 @@ runs:
 
         echo "${GITHUB_PATH}"
 
+        chmod +x "${GITHUB_WORKSPACE}/.zola/zola"
+
         zola --version
