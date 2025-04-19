@@ -4,7 +4,7 @@ description: This action installs the Zola binary.
 
 inputs:
   version:
-    description: The version of Zola to install, e.g. "v0.19.2".
+    description: The version of Zola to install, e.g. "v0.20.0".
     required: false
     default: "latest"
 

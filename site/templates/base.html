@@ -12,7 +12,7 @@
     <section class="section">
       <div class="container">{% block content %} {% endblock %}</div>
       <div class="build-info">
-        <small>This site is built and published to Cloudflare Pages by GitHub Actions.</small>
+        <small>This site is published to Cloudflare Pages by GitHub Actions.</small>
         <br />
         <small
           ><a href="https://github.com/{{ get_env(name='GITHUB_REPOSITORY', default='local') }}/commit/{{ get_env(name='GITHUB_SHA', default='notarealsha') }}">Commit</a></small
