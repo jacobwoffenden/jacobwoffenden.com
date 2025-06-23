@@ -1,7 +1,8 @@
 name = "jacobwoffenden-com"
-compatibility_date = "2024-11-13"
-pages_build_output_dir = "site/public"
-send_metrics = false
+compatibility_date = "2025-04-01"
+
+[assets]
+directory = "./site/public"
 
 [dev]
   port = 8080
