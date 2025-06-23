@@ -2,7 +2,7 @@
 
 ![Production Deployment](https://github.com/jacobwoffenden/jacobwoffenden.com/actions/workflows/deploy-production.yml/badge.svg)
 
-A static site generated with Zola hosted on Cloudflare Pages
+A static site generated with Zola hosted on Cloudflare Workers
 
 ## Development
 
