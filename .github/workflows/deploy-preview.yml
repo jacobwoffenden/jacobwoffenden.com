@@ -1,5 +1,5 @@
 ---
-name: 🚀 Deploy Preview
+name: 🧪 Deploy Preview
 
 on:
   pull_request:
@@ -10,7 +10,8 @@ permissions: {}
 
 jobs:
   deploy-preview:
-    name: 🚀 Deploy Preview
+    if: github.actor != 'dependabot[bot]'
+    name: 🧪 Deploy Preview
     runs-on: ubuntu-latest
     permissions:
       contents: read

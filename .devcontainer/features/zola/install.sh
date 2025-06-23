@@ -6,15 +6,20 @@ export ZOLA_DESTINATION="/usr/local/bin"
 
 if [[ "${ZOLA_VERSION}" == "latest" ]]; then
   zolaVersion=$(curl --silent "https://api.github.com/repos/${ZOLA_REPOSITORY}/releases/latest" | jq -r '.tag_name')
+  export zolaVersion
 else
   zolaVersion="${ZOLA_VERSION}"
+  export zolaVersion
 fi
 
-export ZOLA_ARCHIVE="zola-${zolaVersion}-$(uname --machine)-unknown-linux-gnu.tar.gz"
-export ZOLA_DOWNLOAD_URL="https://github.com/${ZOLA_REPOSITORY}/releases/download/${zolaVersion}/${ZOLA_ARCHIVE}"
+zolaArchive="zola-${zolaVersion}-$(uname --machine)-unknown-linux-gnu.tar.gz"
+export zolaArchive
 
-curl --location "${ZOLA_DOWNLOAD_URL}" --output "${ZOLA_ARCHIVE}"
+zolaDownloadUrl="https://github.com/${ZOLA_REPOSITORY}/releases/download/${zolaVersion}/${zolaArchive}"
+export zolaDownloadUrl
 
-tar --extract --file "${ZOLA_ARCHIVE}" --directory "${ZOLA_DESTINATION}"
+curl --location "${zolaDownloadUrl}" --output "${zolaArchive}"
 
-rm --force "${ZOLA_ARCHIVE}"
+tar --extract --file "${zolaArchive}" --directory "${ZOLA_DESTINATION}"
+
+rm --force "${zolaArchive}"
