@@ -14,7 +14,7 @@
     "wrangler-deploy": "wrangler pages deploy --branch $(git branch --show-current | sed 's|/|-|g') --commit-dirty=true"
   },
   "devDependencies": {
-    "prettier": "3.5.3",
+    "prettier": "3.6.0",
     "wrangler": "4.20.5"
   }
 }
