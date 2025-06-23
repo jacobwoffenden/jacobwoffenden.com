@@ -10,6 +10,7 @@ permissions: {}
 
 jobs:
   deploy-production:
+    if: github.actor != 'dependabot[bot]'
     name: 🚀 Deploy Production
     runs-on: ubuntu-latest
     permissions:
