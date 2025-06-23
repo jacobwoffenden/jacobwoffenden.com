@@ -1,0 +1,14 @@
+{
+  "id": "zola",
+  "version": "1.0.0",
+  "name": "zola",
+  "description": "Installs zola (https://github.com/getzola/zola)",
+  "options": {
+    "zolaVersion": {
+      "type": "string",
+      "description": "Version of zola to install",
+      "proposals": ["v0.20.0"],
+      "default": "latest"
+    }
+  }
+}

@@ -1,8 +1,9 @@
 {
   "name": "jacobwoffenden.com",
-  "image": "mcr.microsoft.com/devcontainers/universal:2-focal",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "./features/zola": {}
   },
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
