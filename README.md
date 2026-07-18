@@ -1,6 +1,6 @@
 # jacobwoffenden.com
 
-![Production Deployment](https://github.com/jacobwoffenden/jacobwoffenden.com/actions/workflows/deploy-production.yml/badge.svg)
+![Production Deployment](https://github.com/jacobwoffenden/jacobwoffenden.com/actions/workflows/deploy.yml/badge.svg)
 
 A static site generated with Zola hosted on Cloudflare Pages
 
