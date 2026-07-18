@@ -2,16 +2,6 @@
 version: 2
 
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: ":dependabot: github-actions"
-      include: "scope"
-    labels:
-      - "dependencies"
-      - "github-actions"
   - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
@@ -22,6 +12,20 @@ updates:
     labels:
       - "dependencies"
       - "devcontainers"
+    cooldown:
+      default-days: 7
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":dependabot: github-actions"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -32,3 +36,5 @@ updates:
     labels:
       - "dependencies"
       - "npm"
+    cooldown:
+      default-days: 7
