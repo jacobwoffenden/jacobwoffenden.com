@@ -1,7 +1,10 @@
 ---
-name: 🧪 Deploy Preview
+name: "🚀 Deploy"
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -9,16 +12,16 @@ on:
 permissions: {}
 
 jobs:
-  deploy-preview:
+  deploy:
     if: github.actor != 'dependabot[bot]'
-    name: 🧪 Deploy Preview
+    name: ${{ github.event_name == 'push' && '🚀 Deploy Production' || '🧪 Deploy Preview' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
     environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.deployment-url }}
+      name: ${{ github.event_name == 'push' && 'production' || 'preview' }}
+      url: ${{ github.event_name == 'push' && 'https://jacobwoffenden.com' || steps.deploy_preview.outputs.deployment-url }}
     steps:
       - name: Checkout
         id: checkout
@@ -35,10 +38,20 @@ jobs:
         working-directory: site
         run: zola build
 
-      - name: Deploy
-        id: deploy
+      - name: Deploy Preview
+        id: deploy_preview
+        if: github.event_name == 'pull_request'
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: pages deploy site/public --branch ${{ github.head_ref }} --commit-dirty=true --commit-hash ${{ github.sha }}
+
+      - name: Deploy Production
+        id: deploy_production
+        if: github.event_name == 'push'
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy site/public
