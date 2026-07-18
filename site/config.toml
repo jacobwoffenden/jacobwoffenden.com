@@ -8,8 +8,4 @@ title       = "Jacob Woffenden"
 description = "Jacob Woffenden's personal website"
 author      = "Jacob Woffenden"
 
-
-[markdown]
-highlight_code = true
-
 [extra]
