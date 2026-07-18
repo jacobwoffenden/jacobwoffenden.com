@@ -1,0 +1,57 @@
+---
+name: "🚀 Deploy"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  deploy:
+    if: github.actor != 'dependabot[bot]'
+    name: ${{ github.event_name == 'push' && '🚀 Deploy Production' || '🧪 Deploy Preview' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    environment:
+      name: ${{ github.event_name == 'push' && 'production' || 'preview' }}
+      url: ${{ github.event_name == 'push' && 'https://jacobwoffenden.com' || steps.deploy_preview.outputs.deployment-url }}
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Install Zola
+        id: install_zola
+        uses: ./.github/actions/install-zola
+
+      - name: Build
+        id: build
+        working-directory: site
+        run: zola build
+
+      - name: Deploy Preview
+        id: deploy_preview
+        if: github.event_name == 'pull_request'
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy site/public --branch ${{ github.head_ref }} --commit-dirty=true --commit-hash ${{ github.sha }}
+
+      - name: Deploy Production
+        id: deploy_production
+        if: github.event_name == 'push'
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy site/public

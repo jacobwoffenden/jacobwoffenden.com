@@ -1,8 +1,8 @@
 {
   "name": "jacobwoffenden.com",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu26.04",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/node:": {},
     "./features/zola": {}
   },
   "postCreateCommand": "bash .devcontainer/post-create.sh",
@@ -10,7 +10,6 @@
     "vscode": {
       "extensions": [
         "EditorConfig.EditorConfig",
-        "GitHub.copilot",
         "GitHub.copilot-chat",
         "GitHub.vscode-github-actions",
         "GitHub.vscode-pull-request-github"
