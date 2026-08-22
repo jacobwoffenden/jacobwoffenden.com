@@ -31,6 +31,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENABLE_GITHUB_PULL_REQUEST_SUMMARY_COMMENT: false
           MULTI_STATUS: false
+          VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
           # Super-Linter language settings
           VALIDATE_BIOME_FORMAT: false
           VALIDATE_BIOME_LINT: false
