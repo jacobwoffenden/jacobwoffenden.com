@@ -31,7 +31,7 @@ jobs:
 
       - name: Install Zola
         id: install_zola
-        uses: ./.github/actions/install-zola
+        uses: $/.github/actions/install-zola
 
       - name: Build
         id: build
