@@ -11,6 +11,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     if: github.actor != 'dependabot[bot]'
