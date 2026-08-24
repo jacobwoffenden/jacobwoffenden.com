@@ -24,4 +24,3 @@ fi
 tar --extract --file "/tmp/zola.tar.gz" --directory "/usr/local/bin"
 
 zola --version
-OK
