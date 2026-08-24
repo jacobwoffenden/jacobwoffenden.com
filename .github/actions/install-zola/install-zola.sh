@@ -13,7 +13,7 @@ archive="zola-${version}-$(uname --machine)-unknown-linux-gnu.tar.gz"
 checksum="$(jq -r --arg archive "${archive}" '.assets[] | select(.name == $archive) | .digest | sub("^sha256:"; "")' <<<"${release}")"
 
 if [[ ! "${checksum}" =~ ^[a-f0-9]{64}$ ]]; then
-  echo "No SHA-256 checksum is available for ${archive}." >&2
+  echo "No valid SHA-256 checksum is available for ${archive}." >&2
   exit 1
 fi
 
