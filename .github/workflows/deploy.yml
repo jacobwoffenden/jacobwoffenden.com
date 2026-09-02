@@ -19,7 +19,7 @@ jobs:
   deploy:
     if: github.actor != 'dependabot[bot]'
     name: ${{ github.event_name == 'push' && '🚀 Deploy Production' || '🧪 Deploy Preview' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     permissions:
       contents: read
       deployments: write
